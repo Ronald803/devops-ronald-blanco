@@ -62,6 +62,51 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"ronald-example.py\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.210.69.41/api/storage/db/files/null",
+					"protocol": "http",
+					"host": [
+						"172",
+						"210",
+						"69",
+						"41"
+					],
+					"path": [
+						"api",
+						"storage",
+						"db",
+						"files",
+						"null"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
