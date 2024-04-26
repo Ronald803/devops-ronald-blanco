@@ -17,4 +17,4 @@ jobs:
       run: npm install -g newman
       
     - name: Run tests
-      run: newman run mi_coleccion_postman.json
+      run: newman run storage-service.postman_collection.json
